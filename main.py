@@ -1,10 +1,13 @@
 from aiogram import Bot, Dispatcher, F, filters, types
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, Message
 import asyncio
+import os
 import openai
+from dotenv import load_dotenv
+load_dotenv()
 
-openai.api_key = "sk-proj-5gkPL1XPwqRyu7vGuJwzT3BlbkFJmC6ZH1W73HxJBgYSWY77"
-bot = Bot(token="7353339504:AAGsRb1hPc0RqcDlSkrGoQ0-gZpScCCt5SI")
+openai.api_key = os.getenv('OPEN_AI_TOKEN')
+bot = Bot(token=os.getenv('TOKEN'))
 dp = Dispatcher(bot=bot)
 
 kb = ReplyKeyboardMarkup(keyboard=[
